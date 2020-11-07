@@ -26,3 +26,8 @@ body{
     background-color: red;
     position: absolute;
 }
+
+.text{
+    position: absolute;
+    margin-top: 600px;
+}
