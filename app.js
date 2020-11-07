@@ -3,10 +3,12 @@ var box=document.querySelector(".box");
 var posX=20;
 var posY=20;
 var inter;
+var score = 0;
 var rightswitch = false;
 var upswitch = false;
 var leftswitch = false;
 var downswitch = false;
+var textDiv = document.querySelector(".text")
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -26,6 +28,7 @@ function TakeBoxRndCordinate() {
 }
 
 TakeBoxRndCordinate()
+
 
 function Right(){
     rightswitch = true;
@@ -124,12 +127,15 @@ document.onkeydown = function(e) {
 }
 function ChangeBoxCordinate(){
     if (posY == h+20 && posX == w+20){
+        score += 1;
+        textDiv.innerHTML = `Score : ${score}`
         TakeBoxRndCordinate()
     }
 }
 
 function setModal(){
-    // setTimeout(function() { alert("YOU FAILED! PLAY AGAIN:)");location.reload() }, 60);
+    // setTimeout(function() { alert("YOU FAILED! PLAY AGAIN:)"); score = 0 ;location.reload(); }, 60);
     alert("YOU FAILED! PLAY AGAIN:)");
-    location.reload()
+    score = 0;
+    location.reload();
 }
