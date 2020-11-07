@@ -35,10 +35,11 @@ function Right(){
     upswitch = false;
     leftswitch = false;
     downswitch = false;
+    clearInterval(inter);
     inter = setInterval(function(){
         if (rightswitch){
-            snake.style.marginLeft=posX-40+"px"
-            posX-=20;
+            snake.style.marginLeft=posX+"px";
+            posX+=20;
         }
         if (posX == 0) {
             setModal()
@@ -46,7 +47,7 @@ function Right(){
         else {
             ChangeBoxCordinate()
         }
-    },150)
+    },100)
 }
 
 function Up(){
@@ -54,6 +55,7 @@ function Up(){
     upswitch = true;
     leftswitch = false;
     downswitch = false;
+    clearInterval(inter);
     inter = setInterval(function(){
         if (upswitch){
             snake.style.marginTop=posY-40+"px"
@@ -65,7 +67,7 @@ function Up(){
         else {
             ChangeBoxCordinate()
         }
-    },150)
+    },100)
 }
 
 function Left(){
@@ -73,18 +75,19 @@ function Left(){
     upswitch = false;
     leftswitch = true;
     downswitch = false;
+    clearInterval(inter);
     inter = setInterval(function(){
         if (leftswitch){
-            snake.style.marginLeft=posX+"px"
-            posX+=20;
+            snake.style.marginLeft=posX-40+"px"
+            posX-=20;
         }
-        if (posX >= 1340) {
+        if (posX == 1340) {
             setModal();
         }
         else {
             ChangeBoxCordinate()
         }
-    },150)
+    },100)
 }
 
 function Down(){
@@ -92,24 +95,25 @@ function Down(){
     upswitch = false;
     leftswitch = false;
     downswitch = true;
+    clearInterval(inter);
     inter = setInterval(function(){
         if(downswitch){
             snake.style.marginTop=posY+"px"
             posY+=20;
         }
-        if (posY >= 600) {
+        if (posY == 620) {
             setModal();
         }
         else {
             ChangeBoxCordinate()
         }
-    },150)
+    },100)
 
 }
 
 document.onkeydown = function(e) {
     if(e.which == 37) {
-        Right()
+        Left()
     }
 
     else if(e.which == 38) {
@@ -117,7 +121,7 @@ document.onkeydown = function(e) {
     }
 
     else if(e.which == 39) {
-        Left()
+        Right()
     }
 
     else if(e.which == 40) {
@@ -125,6 +129,7 @@ document.onkeydown = function(e) {
     }
     e.preventDefault(); 
 }
+
 function ChangeBoxCordinate(){
     if (posY == h+20 && posX == w+20){
         score += 1;
@@ -134,7 +139,7 @@ function ChangeBoxCordinate(){
 }
 
 function setModal(){
-    // setTimeout(function() { alert("YOU FAILED! PLAY AGAIN:)"); score = 0 ;location.reload(); }, 60);
+    // setTimeout(function() { alert("YOU FAILED! PLAY AGAIN:)"); score = 0; location.reload(); }, 60);
     alert("YOU FAILED! PLAY AGAIN:)");
     score = 0;
     location.reload();
