@@ -1,0 +1,28 @@
+body{
+    background-color: tomato;
+    margin: 0px;
+}
+
+.game-container{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 27px;
+    height: 580px;
+    background-color: darkblue;
+}
+
+.snake{
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    position: absolute;
+    margin-left: 0px;
+    transition: all .3s ease;
+}
+
+.box{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+}
