@@ -41,7 +41,7 @@ function Right(){
             snake.style.marginLeft=posX+"px";
             posX+=20;
         }
-        if (posX == 0) {
+        if (posX == 1340) {
             setModal()
         }
         else {
@@ -81,7 +81,7 @@ function Left(){
             snake.style.marginLeft=posX-40+"px"
             posX-=20;
         }
-        if (posX == 1340) {
+        if (posX == 0) {
             setModal();
         }
         else {
@@ -101,7 +101,7 @@ function Down(){
             snake.style.marginTop=posY+"px"
             posY+=20;
         }
-        if (posY == 620) {
+        if (posY == 600) {
             setModal();
         }
         else {
@@ -139,8 +139,8 @@ function ChangeBoxCordinate(){
 }
 
 function setModal(){
-    // setTimeout(function() { alert("YOU FAILED! PLAY AGAIN:)"); score = 0; location.reload(); }, 60);
-    alert("YOU FAILED! PLAY AGAIN:)");
-    score = 0;
-    location.reload();
+    setTimeout(function() { alert("YOU FAILED! PLAY AGAIN:)"); score = 0; location.reload(); }, 100);
+    // alert("YOU FAILED! PLAY AGAIN:)");
+    // score = 0;
+    // location.reload();
 }
