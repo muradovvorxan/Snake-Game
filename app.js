@@ -1,5 +1,3 @@
-var documentHeight = document.documentElement.clientHeight; 
-var documentWidth = document.documentElement.clientWidth; //1349
 var snake=document.querySelector(".snake");
 var box=document.querySelector(".box");
 var posX=20;
