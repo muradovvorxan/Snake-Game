@@ -113,7 +113,6 @@ function ChangeBoxCordinate(){
 function setModal(){
     setTimeout(function() { 
         alert("YOU FAILED! PLAY AGAIN:)"); 
-        score = 0; 
         location.reload(); 
     }, 100);
 }
