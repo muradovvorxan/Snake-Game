@@ -4,11 +4,7 @@ var posX=20;
 var posY=20;
 var inter;
 var score = 0;
-var rightswitch = false;
-var upswitch = false;
-var leftswitch = false;
-var downswitch = false;
-var textDiv = document.querySelector(".text")
+var textDiv = document.querySelector(".text");
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -31,16 +27,10 @@ TakeBoxRndCordinate()
 
 
 function Right(){
-    rightswitch = true;
-    upswitch = false;
-    leftswitch = false;
-    downswitch = false;
     clearInterval(inter);
     inter = setInterval(function(){
-        if (rightswitch){
-            snake.style.marginLeft=posX+"px";
-            posX+=20;
-        }
+        snake.style.marginLeft=posX+"px";
+        posX+=20;
         if (posX == 1340) {
             setModal()
         }
@@ -51,16 +41,10 @@ function Right(){
 }
 
 function Up(){
-    rightswitch = false;
-    upswitch = true;
-    leftswitch = false;
-    downswitch = false;
     clearInterval(inter);
     inter = setInterval(function(){
-        if (upswitch){
-            snake.style.marginTop=posY-40+"px"
-            posY-=20; 
-        }
+        snake.style.marginTop=posY-40+"px"
+        posY-=20; 
         if (posY == 0) {
             setModal()
         }
@@ -71,16 +55,10 @@ function Up(){
 }
 
 function Left(){
-    rightswitch = false;
-    upswitch = false;
-    leftswitch = true;
-    downswitch = false;
     clearInterval(inter);
     inter = setInterval(function(){
-        if (leftswitch){
-            snake.style.marginLeft=posX-40+"px"
-            posX-=20;
-        }
+        snake.style.marginLeft=posX-40+"px"
+        posX-=20;
         if (posX == 0) {
             setModal();
         }
@@ -91,16 +69,10 @@ function Left(){
 }
 
 function Down(){
-    rightswitch = false;
-    upswitch = false;
-    leftswitch = false;
-    downswitch = true;
     clearInterval(inter);
     inter = setInterval(function(){
-        if(downswitch){
-            snake.style.marginTop=posY+"px"
-            posY+=20;
-        }
+        snake.style.marginTop=posY+"px"
+        posY+=20;
         if (posY == 600) {
             setModal();
         }
@@ -133,14 +105,15 @@ document.onkeydown = function(e) {
 function ChangeBoxCordinate(){
     if (posY == h+20 && posX == w+20){
         score += 1;
-        textDiv.innerHTML = `Score : ${score}`
-        TakeBoxRndCordinate()
+        textDiv.innerHTML = `Score : ${score}`;
+        TakeBoxRndCordinate();
     }
 }
 
 function setModal(){
-    setTimeout(function() { alert("YOU FAILED! PLAY AGAIN:)"); score = 0; location.reload(); }, 100);
-    // alert("YOU FAILED! PLAY AGAIN:)");
-    // score = 0;
-    // location.reload();
+    setTimeout(function() { 
+        alert("YOU FAILED! PLAY AGAIN:)"); 
+        score = 0; 
+        location.reload(); 
+    }, 100);
 }
